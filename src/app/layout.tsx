@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     siteName: "Mon Auto Assuré",
   },
+  verification: {
+    google: "2hlEfcjangZxO1UGFhp6T5KSNoPLpknxqVi4bCD5p4s",
+  },
 };
 
 const OPENING_HOURS = [
