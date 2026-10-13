@@ -109,6 +109,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
         />
+        <TrackingEvents />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
