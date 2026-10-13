@@ -36,6 +36,11 @@ export function SiteFooter() {
           <p className="font-heading font-semibold text-neutral-900">Informations</p>
           <ul className="mt-2 space-y-1">
             <li>
+              <Link href="/blog" className="hover:text-navy">
+                Blog
+              </Link>
+            </li>
+            <li>
               <Link href="/mentions-legales" className="hover:text-navy">
                 Mentions légales
               </Link>
