@@ -3,6 +3,7 @@ import Link from "next/link";
 const NAV_LINKS = [
   { href: "/comment-ca-marche", label: "Comment ça marche" },
   { href: "/pourquoi-comparer", label: "Pourquoi comparer" },
+  { href: "/blog", label: "Blog" },
   { href: "/a-propos", label: "Le cabinet" },
   { href: "/contact", label: "Contact" },
 ];
