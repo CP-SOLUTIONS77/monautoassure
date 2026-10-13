@@ -4,6 +4,7 @@ import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import Link from "next/link";
 import { submitLead, type LeadFormState } from "@/app/actions";
+import { track } from "@/lib/track";
 
 const initialState: LeadFormState = { status: "idle", message: "" };
 
