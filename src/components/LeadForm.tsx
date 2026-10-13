@@ -37,6 +37,10 @@ export function LeadForm({
 }) {
   const [state, formAction] = useActionState(submitLead, initialState);
 
+  useEffect(() => {
+    if (state.status === "success") track("generate_lead", { lead_source: source });
+  }, [state.status, source]);
+
   if (state.status === "success") {
     return (
       <div className="rounded-2xl bg-navy/5 p-6 text-navy">
