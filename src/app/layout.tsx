@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Poppins, Questrial } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TrackingEvents } from "@/components/TrackingEvents";
 import "./globals.css";
 
 const poppins = Poppins({
