@@ -148,6 +148,10 @@ export function SimulateurAuto() {
   const [p, setP] = useState<AutoProfile>(DEFAULT_PROFILE);
   const [state, formAction] = useActionState(submitProfileLead, initialState);
 
+  useEffect(() => {
+    if (state.status === "success") track("generate_lead", { lead_source: "simulateur" });
+  }, [state.status]);
+
   const set = <K extends keyof AutoProfile>(key: K) => (value: AutoProfile[K]) =>
     setP((prev) => ({ ...prev, [key]: value }));
 
