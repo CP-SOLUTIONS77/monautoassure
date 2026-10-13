@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { submitProfileLead, type ProfileLeadState } from "@/app/actions";
+import { track } from "@/lib/track";
 
 type Step = "profil" | "solution" | "dossier";
 
