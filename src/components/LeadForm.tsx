@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import Link from "next/link";
 import { submitLead, type LeadFormState } from "@/app/actions";
