@@ -39,7 +39,7 @@ export function SiteHeader() {
             href="/simulateur"
             className="rounded-full border border-navy px-4 py-2 text-sm font-medium text-navy transition hover:bg-navy hover:text-white"
           >
-            Ma simulation
+            Mon devis
           </Link>
         </div>
       </div>

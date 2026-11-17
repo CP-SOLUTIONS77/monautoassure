@@ -35,7 +35,8 @@ export async function createBrevoLead(lead: LeadContact) {
       email: lead.email,
       attributes: {
         PRENOM: lead.firstname,
-        NOM: lead.lastname,
+        // Un rappel rapide n'a pas de nom : on n'écrase pas celui d'un contact existant.
+        ...(lead.lastname ? { NOM: lead.lastname } : {}),
         SMS: toE164France(lead.phone),
         MESSAGE: lead.message,
         SOURCE: lead.source,
