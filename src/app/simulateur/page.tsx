@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SimulateurAuto } from "@/components/SimulateurAuto";
 
 export const metadata: Metadata = {
-  title: "Étudier mon profil auto",
+  title: "Devis assurance auto",
   description:
-    "Décrivez votre profil auto pour savoir si nous avons une solution adaptée, sans engagement et sans donnée médicale.",
+    "Obtenez un devis d'assurance auto en six questions : un courtier indépendant compare plusieurs assureurs pour votre profil. Gratuit et sans engagement.",
   alternates: { canonical: "/simulateur" },
 };
 

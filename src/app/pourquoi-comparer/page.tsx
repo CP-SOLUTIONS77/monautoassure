@@ -65,7 +65,7 @@ export default function PourquoiComparerPage() {
         href="/simulateur"
         className="mt-8 inline-block rounded-full bg-orange px-6 py-3 font-heading font-semibold text-white transition hover:brightness-95"
       >
-        Étudier mon profil
+        Obtenir mon devis auto
       </Link>
     </div>
   );
