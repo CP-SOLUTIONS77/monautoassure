@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Cookies",
   description: "Utilisation des cookies sur le site.",
+  alternates: { canonical: "/cookies" },
 };
 
 export default function CookiesPage() {

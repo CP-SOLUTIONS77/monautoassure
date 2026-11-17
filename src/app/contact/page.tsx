@@ -4,6 +4,7 @@ import { LeadForm } from "@/components/LeadForm";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contactez le cabinet pour votre assurance auto.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

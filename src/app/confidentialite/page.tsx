@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
   description: "Traitement des données personnelles collectées sur le site.",
+  alternates: { canonical: "/confidentialite" },
 };
 
 function Row({ label, value }: { label: string; value: string }) {
