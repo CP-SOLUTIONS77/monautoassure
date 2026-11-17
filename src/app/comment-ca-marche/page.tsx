@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Comment ça marche",
   description:
     "Les étapes pour comparer ou changer d'assurance auto : profil, étude d'éligibilité, comparaison, résiliation, prise d'effet.",
+  alternates: { canonical: "/comment-ca-marche" },
 };
 
 const STEPS = [

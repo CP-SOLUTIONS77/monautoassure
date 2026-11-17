@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Le cabinet",
   description:
     "CP Solutions, courtier indépendant en assurances et en crédits à Montereau-Fault-Yonne.",
+  alternates: { canonical: "/a-propos" },
 };
 
 export default function AProposPage() {

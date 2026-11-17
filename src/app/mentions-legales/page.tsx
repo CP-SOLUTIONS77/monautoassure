@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Mentions légales",
   description: "Informations réglementaires relatives à l'activité de courtier d'assurance.",
+  alternates: { canonical: "/mentions-legales" },
 };
 
 function Row({ label, value }: { label: string; value: string }) {
