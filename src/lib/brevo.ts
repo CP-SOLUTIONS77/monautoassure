@@ -76,6 +76,12 @@ export async function createBrevoLead(lead: LeadContact) {
   } catch (error) {
     console.error("Erreur envoi e-mail de notification", error);
   }
+
+  try {
+    await sendLeadConfirmation(lead, apiKey);
+  } catch (error) {
+    console.error("Erreur envoi e-mail de confirmation", error);
+  }
 }
 
 async function sendLeadNotification(lead: LeadContact, apiKey: string) {
@@ -115,5 +121,41 @@ async function sendLeadNotification(lead: LeadContact, apiKey: string) {
   if (!response.ok) {
     const body = await response.text();
     throw new Error(`Brevo a refusé l'e-mail de notification (${response.status}): ${body}`);
+  }
+}
+
+/** Accusé de réception envoyé au visiteur. */
+async function sendLeadConfirmation(lead: LeadContact, apiKey: string) {
+  const greeting = lead.firstname ? `Bonjour ${escapeHtml(lead.firstname)},` : "Bonjour,";
+  const htmlContent = `
+    <p>${greeting}</p>
+    <p>Nous avons bien reçu votre demande sur <strong>${escapeHtml(SITE_NAME)}</strong>, et nous vous en remercions.</p>
+    <p>Un conseiller CP Solutions l'étudie et vous recontacte dans les meilleurs délais. Vous n'avez rien d'autre à faire d'ici là.</p>
+    <p>Une question ? Appelez-nous au <a href="tel:+33164248345">01 64 24 83 45</a>, ou répondez simplement à cet e-mail.</p>
+    <p>À très bientôt,<br>L'équipe CP Solutions</p>
+    <p style="color:#666;font-size:12px">CP Solutions, cabinet de courtage en assurances et en crédits<br>
+    35 rue Jean Jaurès, 77130 Montereau-Fault-Yonne<br>
+    Du mardi au vendredi de 9h30 à 12h30 et de 14h à 18h, le lundi et le samedi de 9h30 à 12h30 et de 13h30 à 16h30.</p>
+  `;
+
+  const response = await fetch(BREVO_EMAIL_URL, {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+      "api-key": apiKey,
+    },
+    body: JSON.stringify({
+      sender: { name: "CP Solutions", email: SENDER_EMAIL },
+      to: [{ email: lead.email, name: [lead.firstname, lead.lastname].filter(Boolean).join(" ") || lead.email }],
+      replyTo: { email: NOTIFY_TO, name: "CP Solutions" },
+      subject: `Nous avons bien reçu votre demande | ${SITE_NAME}`,
+      htmlContent,
+    }),
+  });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Brevo a refusé l'e-mail de confirmation (${response.status}): ${body}`);
   }
 }
